@@ -1,0 +1,21 @@
+﻿version: '3.8'
+
+services:
+  jwt-service:
+    build: ./jwt-service
+    ports:
+      - "3001:3000"
+    networks:
+      - backend
+
+  front-public:
+    build: ./front-public
+    ports:
+      - "80:80"
+    networks:
+      - frontend
+      - backend
+
+networks:
+  frontend:
+  backend:
